@@ -104,7 +104,7 @@ public class Espetaculo {
 		if(periodicidade.equals(Periodicidade.SEMANAL))
 			days = days / 7;
 		
-		for (int i = 0; i < days; i++) {
+		for (int i = 0; i <= days; i++) {
 			sessao = new Sessao();
 			sessao.setInicio(inicio.toDateTime(horario));
 			sessoes.add(sessao);
