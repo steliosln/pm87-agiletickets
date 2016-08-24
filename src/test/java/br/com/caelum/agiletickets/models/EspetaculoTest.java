@@ -103,4 +103,15 @@ public class EspetaculoTest {
 		assertEquals(expected, espetaculo.getSessoes().size());
 	}
 	
+	@Test
+	public void deveCriarSessaoPorSemana(){
+		Espetaculo espetaculo = new Espetaculo();
+		int totalSessoes = 14;
+		int expected = espetaculo.getSessoes().size() + 1;
+		System.out.println(8/7);
+		
+		espetaculo.criaSessoes(LocalDate.now(), LocalDate.now().plusDays(totalSessoes), LocalTime.now(), Periodicidade.SEMANAL);
+		assertEquals(expected, espetaculo.getSessoes().size());
+	}
+	
 }
