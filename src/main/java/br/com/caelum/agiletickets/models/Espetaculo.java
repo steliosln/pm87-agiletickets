@@ -99,12 +99,14 @@ public class Espetaculo {
      */
 	public List<Sessao> criaSessoes(LocalDate inicio, LocalDate fim, LocalTime horario, Periodicidade periodicidade) {
 		Sessao sessao;
-		long days = Days.daysBetween(inicio, fim).getDays();
+		long days = Days.daysBetween(inicio, fim).getDays() != 0 ? Days.daysBetween(inicio, fim).getDays() : 1;
+		//if (days == 0)
+		
 		
 		if(periodicidade.equals(Periodicidade.SEMANAL))
-			days = days / 7;
+			days = days / 7;//Math.ceil((double)1/4)
 		
-		for (int i = 0; i <= days; i++) {
+		for (int i = 0; i < days; i++) {
 			sessao = new Sessao();
 			sessao.setInicio(inicio.toDateTime(horario));
 			sessoes.add(sessao);
