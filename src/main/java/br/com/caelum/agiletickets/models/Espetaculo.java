@@ -104,7 +104,7 @@ public class Espetaculo {
 		
 		
 		if(periodicidade.equals(Periodicidade.SEMANAL))
-			days = days / 7;//Math.ceil((double)1/4)
+			days = (long) Math.ceil((double) days/7);//Math.ceil((double)1/4)
 		
 		for (int i = 0; i < days; i++) {
 			sessao = new Sessao();

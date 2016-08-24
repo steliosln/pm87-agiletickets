@@ -104,11 +104,21 @@ public class EspetaculoTest {
 	}
 	
 	@Test
-	public void deveCriarSessaoPorSemana(){
+	public void deveCriarSessaoSemana(){
 		Espetaculo espetaculo = new Espetaculo();
 		int totalSessoes = 7;
-		//use ceiling to calculate the number expected
 		int expected = espetaculo.getSessoes().size() + 1;
+		
+		espetaculo.criaSessoes(LocalDate.now(), LocalDate.now().plusDays(totalSessoes), LocalTime.now(), Periodicidade.SEMANAL);
+		assertEquals(expected, espetaculo.getSessoes().size());
+	}
+	
+	@Test
+	public void deveCriarSessaoPorSemana(){
+		Espetaculo espetaculo = new Espetaculo();
+		int totalSessoes = 23;
+		//use ceiling to calculate the number expected
+		int expected = (int) (espetaculo.getSessoes().size() + Math.ceil((double) totalSessoes/7));
 		System.out.println("ceiling" + Math.ceil((double)1/4));
 		
 		espetaculo.criaSessoes(LocalDate.now(), LocalDate.now().plusDays(totalSessoes), LocalTime.now(), Periodicidade.SEMANAL);
